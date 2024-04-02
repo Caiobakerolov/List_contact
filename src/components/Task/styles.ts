@@ -1,4 +1,22 @@
 import styled from 'styled-components'
+import variables from '../../styles/variables'
+import * as enums from '../../Utils/enums/task'
+
+type TagProps = {
+  priority?: enums.Priority
+  parameter: 'priority'
+}
+
+function returnBackground(props: TagProps): string {
+  if (props.parameter === 'priority') {
+    if (props.priority === enums.Priority.FRIENDS) return variables.blue
+    if (props.priority === enums.Priority.FAMILY) return variables.purple
+    if (props.priority === enums.Priority.WORK) return variables.yellow
+    if (props.priority === enums.Priority.FAVORITE) return variables.pink
+    if (props.priority === enums.Priority.EMERGENCY) return variables.brownRed
+  }
+  return '#ccc'
+}
 
 export const Card = styled.div`
   background-color: #fcfcfc;
@@ -14,18 +32,18 @@ export const Title = styled.h3`
   margin-bottom: 16px;
 `
 
-export const Tag = styled.span`
+export const Tag = styled.span<TagProps>`
   padding: 4px 8px;
   color: #fff;
   font-weight: bold;
   font-size: 10px;
-  background-color: #e1a32a;
+  background-color: ${(props) => returnBackground(props)};
   border-radius: 8px;
   margin-right: 16px;
   display: inline-block;
 `
 
-export const Description = styled.textarea`
+export const InputDescription = styled.input`
   color: #8b8b8b;
   font-size: 14px;
   line-height: 24px;
@@ -54,4 +72,11 @@ export const Btn = styled.button`
   background-color: #2f3640;
   border-radius: 8px;
   margin-right: 8px;
+`
+
+export const BtnSave = styled(Btn)`
+  background-color: ${variables.green};
+`
+export const BtnCancelRemove = styled(Btn)`
+  background-color: ${variables.red};
 `

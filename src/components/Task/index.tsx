@@ -1,32 +1,39 @@
 import { useState } from 'react'
 import * as S from './styles'
+import * as enums from '../../Utils/enums/task'
 
 type Props = {
   name: string
-  priority: string
+  priority: enums.Priority
   cellphone: number
   email: string
+  description: string
 }
 
-const Task = ({ name, priority, cellphone, email }: Props) => {
+const Task = ({ name, priority, cellphone, email, description }: Props) => {
   const [isEditing, setIsEditing] = useState(false)
 
   return (
     <S.Card>
       <S.Title>{name}</S.Title>
-      <S.Tag>{priority}</S.Tag>
-      <S.Description value={cellphone} />
-      <S.Description value={email} />
+      <S.Tag parameter="priority" priority={priority}>
+        {priority}
+      </S.Tag>
+      <S.InputDescription type="tel" value={cellphone} />
+      <S.InputDescription type="email" value={email} />
+      <S.InputDescription type="text" value={description} />
       <S.SideAction>
         {isEditing ? (
           <>
-            <S.Btn>Save</S.Btn>
-            <S.Btn onClick={() => setIsEditing(false)}>Cancel</S.Btn>
+            <S.BtnSave>Save</S.BtnSave>
+            <S.BtnCancelRemove onClick={() => setIsEditing(false)}>
+              Cancel
+            </S.BtnCancelRemove>
           </>
         ) : (
           <>
             <S.Btn onClick={() => setIsEditing(true)}>Edit</S.Btn>
-            <S.Btn>Remove</S.Btn>
+            <S.BtnCancelRemove>Remove</S.BtnCancelRemove>
           </>
         )}
       </S.SideAction>

@@ -1,36 +1,42 @@
 import Task from '../../components/Task'
 import { Container } from './styles'
+import * as enums from '../../Utils/enums/task'
 
 const tasks = [
   {
     name: 'Caio Bakerolov',
-    priority: 'friends',
+    priority: enums.Priority.FRIENDS,
     cellphone: +640123123123,
-    email: 'caiobakerolov@icloud.com'
+    email: 'caiobakerolov@icloud.com',
+    description: 'My father'
   },
   {
     name: 'Jose Francisco',
-    priority: 'work',
+    priority: enums.Priority.WORK,
     cellphone: +640123123123,
-    email: 'caiobakerolov@icloud.com'
+    email: 'caiobakerolov@icloud.com',
+    description: 'Worked with me at Google'
   },
   {
     name: 'Aline Alcantara',
-    priority: 'emergency',
+    priority: enums.Priority.EMERGENCY,
     cellphone: +640123123123,
-    email: 'caiobakerolov@icloud.com'
+    email: 'caiobakerolov@icloud.com',
+    description: 'My wife'
   },
   {
     name: 'Ravi Bakerolov',
-    priority: 'family',
+    priority: enums.Priority.FAMILY,
     cellphone: +640123123123,
-    email: 'caiobakerolov@icloud.com'
+    email: 'caiobakerolov@icloud.com',
+    description: 'My son'
   },
   {
     name: 'Gael Bakerolov',
-    priority: 'important',
+    priority: enums.Priority.FAVORITE,
     cellphone: +640123123123,
-    email: 'caiobakerolov@icloud.com'
+    email: 'caiobakerolov@icloud.com',
+    description: 'My Son'
   }
 ]
 
@@ -42,10 +48,11 @@ const ListTasks = () => (
         <li key={t.name}>
           {' '}
           <Task
-            cellphone={t.cellphone}
-            email={t.email}
             name={t.name}
             priority={t.priority}
+            cellphone={t.cellphone}
+            email={t.email}
+            description={t.description}
           />
         </li>
       ))}
