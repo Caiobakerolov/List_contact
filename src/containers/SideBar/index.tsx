@@ -3,6 +3,7 @@ import FilterCard from '../../components/FilterCard'
 import * as S from './styles'
 import { RootReducer } from '../../store'
 import { changeTerm } from '../../store/reducers/filter'
+import * as enums from '../../Utils/enums/task'
 
 const SideBar = () => {
   const dispatch = useDispatch()
@@ -18,12 +19,32 @@ const SideBar = () => {
           onChange={(event) => dispatch(changeTerm(event.target.value))}
         />
         <S.Filters>
-          <FilterCard subtitle="friends" counter={1} />
-          <FilterCard subtitle="family" counter={2} />
-          <FilterCard subtitle="work" counter={3} />
-          <FilterCard subtitle="favorite" counter={4} />
-          <FilterCard subtitle="emergency" counter={5} />
-          <FilterCard subtitle="all" counter={10} active />
+          <FilterCard
+            value={enums.Priority.FRIENDS}
+            criterion="priority"
+            subtitle="friends"
+          />
+          <FilterCard
+            value={enums.Priority.FAMILY}
+            criterion="priority"
+            subtitle="family"
+          />
+          <FilterCard
+            value={enums.Priority.WORK}
+            criterion="priority"
+            subtitle="work"
+          />
+          <FilterCard
+            value={enums.Priority.FAVORITE}
+            criterion="priority"
+            subtitle="favorite"
+          />
+          <FilterCard
+            value={enums.Priority.EMERGENCY}
+            criterion="priority"
+            subtitle="emergency"
+          />
+          <FilterCard criterion="all" subtitle="all" />
         </S.Filters>
       </div>
     </S.Aside>
