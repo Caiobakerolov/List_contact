@@ -2,7 +2,14 @@ import styled from 'styled-components'
 
 export const Container = styled.main`
   padding: 0 40px;
-  height: 90vh;
+  height: 100vh;
   overflow-y: scroll;
-  margin-top: 32px;
+`
+
+export const Result = styled.p`
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: bold;
 `

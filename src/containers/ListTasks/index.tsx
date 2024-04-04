@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 
 import Task from '../../components/Task'
-import { Container } from './styles'
+import { Container, Result } from './styles'
 import { RootReducer } from '../../store'
 
 const ListTasks = () => {
@@ -28,16 +28,28 @@ const ListTasks = () => {
     }
   }
 
+  const showResultFilter = (amount: number) => {
+    let message = ''
+    const complementing =
+      term !== undefined && term.length > 0 ? `e "${term}"` : ''
+
+    if (criterion === 'all') {
+      message = `${amount} task(s) found as: all ${complementing}`
+    } else {
+      message = `${amount} task(s) found as: "${`${criterion} = ${value}`}"${complementing}`
+    }
+
+    return message
+  }
+
+  const tasks = filterTasks()
+  const message = showResultFilter(tasks.length)
+
   return (
     <Container>
-      <p>2 Tasks marked as: &quot;category&ldquo; e &quot;{term}&ldquo;</p>
+      <Result>{message}</Result>
       <ul>
-        <li>{term}</li>
-        <li>{criterion}</li>
-        <li>{value}</li>
-      </ul>
-      <ul>
-        {filterTasks().map((t) => (
+        {tasks.map((t) => (
           <li key={t.name}>
             {' '}
             <Task
