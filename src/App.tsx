@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import StyleGlobal, { Container } from './styles'
 import store from './store/index'
 import Home from './pages/Home'
+import Register from './pages/Register'
 
 const routes = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const routes = createBrowserRouter([
   },
   {
     path: '/new',
-    element: <h1>New Task</h1>
+    element: <Register />
   }
 ])
 
