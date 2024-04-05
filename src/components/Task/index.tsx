@@ -46,7 +46,10 @@ const Task = ({
 
   return (
     <S.Card>
-      <S.Title>{name}</S.Title>
+      <label htmlFor="">
+        <input type="checkbox" id={name} />
+        <S.Title>{name}</S.Title>
+      </label>
       <S.Tag parameter="priority" priority={priority}>
         {priority}
       </S.Tag>

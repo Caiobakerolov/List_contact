@@ -24,23 +24,29 @@ export const Card = styled.div`
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
+
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
 `
 
 export const Title = styled.h3`
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-left: 8px;
 `
 
 export const Tag = styled.span<TagProps>`
-  padding: 4px 8px;
   color: #fff;
-  font-weight: bold;
-  font-size: 10px;
   background-color: ${(props) => returnBackground(props)};
+  font-size: 10px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 4px 8px;
   border-radius: 8px;
   margin-right: 16px;
-  display: inline-block;
 `
 
 export const InputDescription = styled.input`
