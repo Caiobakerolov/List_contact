@@ -12,7 +12,7 @@ const initialState: TasksState = {
       id: 1,
       name: 'Suely',
       priority: enums.Priority.FAMILY,
-      cellphone: 11223556889,
+      cellphone: '11223556889',
       email: 'suely@gmail.com',
       description: 'My mother'
     },
@@ -20,7 +20,7 @@ const initialState: TasksState = {
       id: 2,
       name: 'Jose',
       priority: enums.Priority.WORK,
-      cellphone: 11223556889,
+      cellphone: '11223556889',
       email: 'Jose@gmail.com',
       description: 'My mother'
     },
@@ -28,7 +28,7 @@ const initialState: TasksState = {
       id: 3,
       name: 'Luzia',
       priority: enums.Priority.FAVORITE,
-      cellphone: 11223556889,
+      cellphone: '11223556889',
       email: 'Luzia@gmail.com',
       description: 'My mother'
     },
@@ -36,7 +36,7 @@ const initialState: TasksState = {
       id: 4,
       name: 'Gilberto',
       priority: enums.Priority.FRIENDS,
-      cellphone: 11223556889,
+      cellphone: '11223556889',
       email: 'Gilberto@gmail.com',
       description: 'My mother'
     },
@@ -44,7 +44,7 @@ const initialState: TasksState = {
       id: 5,
       name: 'Frances',
       priority: enums.Priority.EMERGENCY,
-      cellphone: 11223556889,
+      cellphone: '11223556889',
       email: 'Frances@gmail.com',
       description: 'My mother'
     }
@@ -66,10 +66,21 @@ const tasksSlice = createSlice({
       if (indexTask >= 0) {
         state.itens[indexTask] = action.payload
       }
+    },
+    register: (state, action: PayloadAction<Task>) => {
+      const nameExist = state.itens.find(
+        (task) => task.name.toLowerCase() === action.payload.name.toLowerCase()
+      )
+
+      if (nameExist) {
+        alert('There is already a name like this')
+      } else {
+        state.itens.push(action.payload)
+      }
     }
   }
 })
 
-export const { remove, edit } = tasksSlice.actions
+export const { remove, edit, register } = tasksSlice.actions
 
 export default tasksSlice.reducer
