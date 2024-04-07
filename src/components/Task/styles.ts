@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
 import * as enums from '../../Utils/enums/task'
+import { Btn } from '../../styles'
 
 type TagProps = {
   priority?: enums.Priority
@@ -19,27 +20,21 @@ function returnBackground(props: TagProps): string {
 }
 
 export const Card = styled.div`
-  background-color: #fcfcfc;
+  background-color: ${variables.grayLight};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
-
-  label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-  }
 `
 
 export const Title = styled.h3`
   font-size: 18px;
   font-weight: bold;
-  margin-left: 8px;
+  margin-bottom: 8px;
 `
 
 export const Tag = styled.span<TagProps>`
-  color: #fff;
+  color: ${variables.white};
   background-color: ${(props) => returnBackground(props)};
   font-size: 10px;
   font-weight: bold;
@@ -50,7 +45,7 @@ export const Tag = styled.span<TagProps>`
 `
 
 export const InputDescription = styled.input`
-  color: #8b8b8b;
+  color: ${variables.grayDark};
   font-size: 14px;
   line-height: 24px;
   font-family: 'Roboto Mono', monospace;
@@ -66,18 +61,6 @@ export const InputDescription = styled.input`
 export const SideAction = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 16px;
-`
-
-export const Btn = styled.button`
-  font-size: 12px;
-  font-weight: bold;
-  color: #fff;
-  padding: 8px 12px;
-  border: none;
-  cursor: pointer;
-  background-color: #2f3640;
-  border-radius: 8px;
-  margin-right: 8px;
 `
 
 export const BtnCancelRemove = styled(Btn)`

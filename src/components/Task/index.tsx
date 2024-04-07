@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import * as S from './styles'
 import { remove, edit } from '../../store/reducers/tasks'
 import TaskClass from '../../models/Task'
-import { BtnSave } from '../../styles'
+import { Btn, BtnSave } from '../../styles'
 
 type Props = TaskClass
 
@@ -47,10 +47,7 @@ const Task = ({
 
   return (
     <S.Card>
-      <label htmlFor="">
-        <input type="checkbox" id={name} />
-        <S.Title>{name}</S.Title>
-      </label>
+      <S.Title>{name}</S.Title>
       <S.Tag parameter="priority" priority={priority}>
         {priority}
       </S.Tag>
@@ -99,7 +96,7 @@ const Task = ({
           </>
         ) : (
           <>
-            <S.Btn onClick={() => setIsEditing(true)}>Edit</S.Btn>
+            <Btn onClick={() => setIsEditing(true)}>Edit</Btn>
             <S.BtnCancelRemove onClick={() => dispatch(remove(id))}>
               Remove
             </S.BtnCancelRemove>

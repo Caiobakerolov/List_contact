@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import variables from './variables'
-import { Btn } from '../components/Task/styles'
 
 const StyleGlobal = createGlobalStyle`
   * {
@@ -33,13 +32,25 @@ export const Title = styled.h2`
 
 export const Field = styled.input`
   padding: 8px;
-  background-color: #fff;
+  background-color: ${variables.white};
   border-radius: 8px;
-  color: #666;
+  color: ${variables.grayDark2};
   font-weight: bold;
-  border: 2px solid #666;
+  border: 2px solid ${variables.grayDark2};
   width: 100%;
   margin-bottom: 16px;
+`
+
+export const Btn = styled.button`
+  font-size: 12px;
+  font-weight: bold;
+  color: ${variables.white};
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background-color: ${variables.blueDark};
+  border-radius: 8px;
+  margin-right: 8px;
 `
 
 export const BtnSave = styled(Btn)`

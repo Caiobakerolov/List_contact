@@ -6,7 +6,6 @@ import { BtnSave, MainContainer, Title } from '../../styles'
 import { Field } from '../../styles'
 import { FormRegister, Options, Option } from './styles'
 import * as enums from '../../Utils/enums/task'
-import Task from '../../models/Task'
 import { register } from '../../store/reducers/tasks'
 
 const Form = () => {
@@ -22,9 +21,15 @@ const Form = () => {
   const registerTask = (event: FormEvent) => {
     event.preventDefault()
 
-    const taskAdd = new Task(name, cellphone, email, description, priority, 9)
-
-    dispatch(register(taskAdd))
+    dispatch(
+      register({
+        name,
+        cellphone,
+        email,
+        description,
+        priority
+      })
+    )
     navigate('/')
   }
 

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+import variables from '../../styles/variables'
 
 export const FormRegister = styled.form`
   max-width: 547px;
   width: 100%;
   font-weight: bold;
   font-size: 14px;
-  color: #666;
+  color: ${variables.grayDark2};
 
   textarea {
     resize: none;

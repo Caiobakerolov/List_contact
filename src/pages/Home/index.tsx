@@ -4,7 +4,7 @@ import SideBar from '../../containers/SideBar'
 
 const Home = () => (
   <>
-    <SideBar />
+    <SideBar showFilters />
     <ListTasks />
     <BtnAdd />
   </>
