@@ -35,7 +35,7 @@ const Form = () => {
 
   return (
     <MainContainer>
-      <Title>New Task</Title>
+      <Title>New contact</Title>
       <FormRegister onSubmit={registerTask}>
         <Field
           value={name}
@@ -59,7 +59,7 @@ const Form = () => {
           value={description}
           onChange={({ target }) => setDescription(target.value)}
           as="textarea"
-          placeholder="Task description "
+          placeholder="Description "
         />
         <Options>
           <p>Priority</p>

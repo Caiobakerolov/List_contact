@@ -59,7 +59,7 @@ const SideBar = ({ showFilters }: Props) => {
           </>
         ) : (
           <Btn onClick={() => navigate('/')} type="button">
-            back list agenda
+            back list schedule
           </Btn>
         )}
       </div>
